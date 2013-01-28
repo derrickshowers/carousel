@@ -2,9 +2,10 @@
  *  Project: dsCarousel
  *  Description: Simple carousel to rotate a-spot image
  *  Author: Derrick Showers
- *  License: None
- */;
-(function ($, window, document, undefined) {
+ *  Version: 1.0
+ */
+ 
+;(function ($, window, document, undefined) {
 
 	// Defaults
 	var pluginName = "dsCarousel",
@@ -26,6 +27,7 @@
 	Plugin.prototype = {
 
 		init: function () {
+			
 			// Global self variable
 			self = this;
 
@@ -34,6 +36,7 @@
 			this.listeners();
 			this.autoSlide(this.options.autoStart);
 			this.progress();
+		
 		},
 
 		setProperties: function () {
@@ -65,7 +68,7 @@
 
 				// Clone first/last panel and place it at begining or end
 				var $newPanel = (direction == "next") ? $($panels[0]) : $($panels.get(self.options.panels - 1));
-				(direction == "next") ? $newPanel.clone().appendTo(self.options.panelContainer) : $newPanel.clone().prependTo(self.options.panelContainer);
+				(direction == "next") ? $newPanel.clone().addClass("temp").appendTo(self.options.panelContainer) : $newPanel.clone().addClass("temp").prependTo(self.options.panelContainer);
 
 				// Reset left position after cloning
 				if (direction == "prev") {
@@ -82,11 +85,11 @@
 				if (_uhOh) {
 					if (direction == "next") {
 						self.options.panelContainer.css('left', 0)
-						self.options.panelContainer.children("li:last").remove();
+						self.options.panelContainer.children(".temp").remove();
 						self.options.currentPanel = 1;
 					} else {
 						self.options.panelContainer.css('left', -((self.options.panels - 1) * self.options.width))
-						self.options.panelContainer.children("li:first").remove();
+						self.options.panelContainer.children(".temp").remove();
 						self.options.currentPanel = self.options.panels;
 					}
 				}
