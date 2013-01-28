@@ -32,6 +32,8 @@ a			{color:#333;}
 
 #dsCarouselContainer > ul {
 	position: relative;
+	padding: 0;
+	margin: 0;
 }
 
 #dsCarouselContainer > ul > li {
