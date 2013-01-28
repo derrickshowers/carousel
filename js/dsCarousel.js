@@ -29,7 +29,8 @@
         init: function() {
         	// Global self variable
         	self = this;
-        
+        	
+        	// Init functions
         	this.setProperties();
         	this.listeners();
             this.autoSlide(this.options.autoStart);
@@ -81,7 +82,7 @@
             }, this.options.slideSpeed, function() {
                         
             	// Reset beginning or end
-	           	if (_uhOh) {
+            	if (_uhOh) {
 		           	if (direction == "next") {
 			           	self.options.panelContainer.css('left',0)
 			           	self.options.panelContainer.children("li:last").remove();
