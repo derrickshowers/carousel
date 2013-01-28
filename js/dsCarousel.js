@@ -14,6 +14,7 @@
 			slideSpeed: 500,
 			slideDelay: 3000
 		};
+	var self = this;
 
 	// Plugin Constructor
 	function Plugin(element, options) {
@@ -121,12 +122,12 @@
 		},
 
 		autoSlide: function (onOff) {
-
+			
 			// Turn on auto slide if true is passed
 			if (onOff) {
 				self.options.sliding = setInterval(function () {
-					self.slide("next")
-				}, this.options.slideDelay);
+					self.slide("next");
+				}, self.options.slideDelay);
 			}
 
 			// Turn off auto slide if false is passed
